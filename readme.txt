@@ -34,3 +34,5 @@ mkdir build
 cd build
 cmake .. -DOpenCV-SWIG_ROOT=/usr/local
 make
+
+then run: python3 test.py
