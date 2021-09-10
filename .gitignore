@@ -1,5 +1,7 @@
 .vscode
 build
-__pychche__
+__pycache__
+*.so
+*.cxx
+*.o
 .DS_Store
-

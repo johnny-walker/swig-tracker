@@ -2,6 +2,7 @@
 #include "my_lib.hpp"
 
 CLTracker::CLTracker(){
+    //Mat img = imread('test.jpg', 0);
 }
 
 CLTracker::~CLTracker(){
@@ -11,11 +12,15 @@ CLTracker::~CLTracker(){
 void CLTracker::setImage(Mat& buffer){
     m_buffer = buffer;
     cout << "setImage, dims: " << m_buffer.dims << endl;
+    imshow("setImage", buffer);
+    waitKey(0);
 }
 
 Mat CLTracker::getImage()  {
     cout << "getImage, channels:" << m_buffer.channels() << endl;
-    return m_buffer;
+    Mat dst = m_buffer.clone();
+    blur( m_buffer, dst, Size( 5, 5 ), Point(-1,-1) );
+    return dst;
 }
 
 //cv:Point
