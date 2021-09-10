@@ -19,7 +19,7 @@ void CLTracker::setImage(Mat& buffer){
 Mat CLTracker::getImage()  {
     cout << "getImage, channels:" << m_buffer.channels() << endl;
     Mat dst = m_buffer.clone();
-    blur( m_buffer, dst, Size( 5, 5 ), Point(-1,-1) );
+    blur( m_buffer, dst, Size( 5, 5 ));
     return dst;
 }
 
