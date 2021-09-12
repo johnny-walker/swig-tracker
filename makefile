@@ -14,20 +14,20 @@ RPATH = /usr/local/lib
 CVLIBS = `pkg-config opencv4 --libs`
 LIBS = -L/Library/Frameworks/Python.framework/Versions/3.8/lib -lpython3.8 ${CVLIBS}
 
-all: _my_lib.so
+all: _py_lib.so
 
-_my_lib.so: my_lib_wrap.o my_lib.o
+_py_lib.so: py_lib_wrap.o py_lib.o
 	$(CXX) -shared -rpath ${RPATH} $^ ${LIBS} -o $@ 
 
-my_lib_wrap.o: my_lib_wrap.cxx 
+py_lib_wrap.o: py_lib_wrap.cxx 
 	$(CXX) ${CFLAGS} -c $? ${MODFLAGS} -o $@  
 
-my_lib.o: my_lib.cpp
+py_lib.o: py_lib.cpp
 	$(CXX) ${CFLAGS} -c $? ${MODFLAGS}  -o $@   
 
-my_lib_wrap.cxx : my_lib.i my_lib.hpp
-	swig ${SWIGINC} -python -c++ my_lib.i
+py_lib_wrap.cxx : py_lib.i py_lib.hpp
+	swig ${SWIGINC} -python -c++ py_lib.i
 
 .PHONY: clean
 clean:
-	rm -f my_lib.py *.so *.o *.cxx
+	rm -f py_lib.py *.so *.o *.cxx

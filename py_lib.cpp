@@ -1,5 +1,5 @@
     
-#include "my_lib.hpp"
+#include "py_lib.hpp"
 
 CLTracker::CLTracker(){
     //Mat img = imread('test.jpg', 0);
