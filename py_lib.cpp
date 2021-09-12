@@ -1,8 +1,8 @@
-    
 #include "py_lib.hpp"
 
 CLTracker::CLTracker(){
-    //Mat img = imread('test.jpg', 0);
+    //m_detecter = new CLDetector;
+    //m_detecter->hello();
 }
 
 CLTracker::~CLTracker(){

@@ -5,6 +5,7 @@
 */
 #include<opencv2/opencv.hpp>
 #include <iostream>
+//#include "./libs/detector.h"
 
 using namespace std;
 using namespace cv;
@@ -27,10 +28,12 @@ public:
     Size getSize(); 
 
 private:
-    Point   m_point;
-    Mat     m_buffer;
-    Rect    m_rect;
-    Size    m_size;
+    //CLDetector* m_detecter;
+
+    Point       m_point;
+    Mat         m_buffer;
+    Rect        m_rect;
+    Size        m_size;
 };
 
 

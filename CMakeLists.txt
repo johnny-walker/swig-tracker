@@ -15,7 +15,7 @@ find_package(Python REQUIRED COMPONENTS Interpreter Development)
 include(UseSWIG)
 
 set_property(SOURCE py_lib.i PROPERTY CPLUSPLUS ON)
-swig_add_library(py_lib LANGUAGE python SOURCES py_lib.i py_lib.hpp py_lib.cpp)
+swig_add_library(py_lib LANGUAGE python SOURCES py_lib.i py_lib.h py_lib.cpp)
 set_property(
   TARGET py_lib
   PROPERTY SWIG_INCLUDE_DIRECTORIES
