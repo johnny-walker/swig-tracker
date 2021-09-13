@@ -1,5 +1,5 @@
-#include<opencv2/opencv.hpp>
 #include <iostream>
+#include<opencv2/opencv.hpp>
 
 using namespace std;
 using namespace cv;
@@ -9,5 +9,7 @@ public:
     CLDetector();
     ~CLDetector();
 
+public:
     void hello();
+    void setImage(Mat& buffer);
 };

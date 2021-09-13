@@ -30,6 +30,6 @@ tracker.setImage(_lib.Mat3b.from_array(img))
 cv_img = tracker.getImage() # got blur image
 blur_img = np.asarray(cv_img)
 
-window_name = 'blur'
+window_name = 'Python Blur'
 cv2.imshow(window_name, blur_img)
 cv2.waitKey()

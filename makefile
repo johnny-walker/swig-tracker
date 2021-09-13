@@ -18,14 +18,14 @@ RPATH     = /usr/local/lib
 LIBS      = -L/Library/Frameworks/Python.framework/Versions/3.8/lib -lpython3.8 
 LIBS     += `pkg-config opencv4 --libs`
 
-#CLINC     = -I./libs
-#CLLIBS	   = -L./libs -ldetector
+#PROJINC   = -I./libs
+PROJLIBS  = -L${CURDIR} -ldetector
 #LDFLAGS   = -ldl
-
 all: _py_lib.so
 
 _py_lib.so: py_lib_wrap.o py_lib.o 
-	$(CXX) -shared -rpath ${RPATH} $^ ${LIBS} -o $@ 
+	$(MAKE) -C libs
+	$(CXX) -shared -rpath ${RPATH} $^ ${LIBS} ${PROJLIBS} -o $@ 
 
 py_lib_wrap.o: py_lib_wrap.cxx 
 	$(CXX) ${CXXFLAGS} -c $? -o $@  
@@ -39,3 +39,4 @@ py_lib_wrap.cxx : py_lib.i py_lib.hpp
 .PHONY: clean
 clean:
 	rm -f py_lib.py *.so *.o *.cxx
+	rm -f libs/*.so

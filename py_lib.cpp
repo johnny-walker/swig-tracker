@@ -1,8 +1,10 @@
 #include "py_lib.hpp"
 
-CLTracker::CLTracker(){
-    //m_detecter = new CLDetector;
-    //m_detecter->hello();
+CLTracker::CLTracker(): m_detecter(nullptr){
+    m_detecter = new CLDetector;
+    if (m_detecter) {
+        m_detecter->hello();
+    }
 }
 
 CLTracker::~CLTracker(){
@@ -12,8 +14,11 @@ CLTracker::~CLTracker(){
 void CLTracker::setImage(Mat& buffer){
     m_buffer = buffer;
     cout << "setImage, dims: " << m_buffer.dims << endl;
-    imshow("setImage", buffer);
-    waitKey(0);
+    if (m_detecter) {
+        m_detecter->setImage(buffer);
+    }
+    //imshow("CLTracker", buffer);
+    //waitKey(0);
 }
 
 Mat CLTracker::getImage()  {
