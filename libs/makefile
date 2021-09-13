@@ -8,7 +8,9 @@ all: libdetector.so
 libdetector.so: detector.cpp
 	$(CXX) $(CXXFLAGS) -shared $? ${LIBS} -o $@ 	
 	cp $@ ..
+
+.PHONY: clean
 clean:
 	$(RM) libdetector.so
+	$(RM) ../libdetector.so
 
-$(lib): detector.h
