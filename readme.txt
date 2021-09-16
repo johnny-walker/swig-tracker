@@ -5,11 +5,12 @@ https://blog.csdn.net/whahu1989/article/details/95874756
 
 (1)install opencv
 git clone https://github.com/opencv/opencv.git
-git clone https://github.com/opencv/opencv_contrib.git (optional)
+git clone https://github.com/opencv/opencv_contrib.git 
 cd opencv
 mkdir release
 cd release
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DCMAKE_INSTALL_PREFIX=/usr/local 
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DCMAKE_INSTALL_PREFIX=/usr/local -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules
+
 make -j7
 sudo make install
 
